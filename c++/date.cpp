@@ -57,7 +57,7 @@ class date
             }
         }
     }
-}
+};
 
 int main()
 {
