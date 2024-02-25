@@ -13,16 +13,18 @@ class Calc {
         c = sc.next().charAt(0);
         b = sc.nextFloat();
 
+        sc.close();
+
         if(c=='+'){
         System.out.println(a+b);
         }
-        if(c=='-'){
+        else if(c=='-'){
             System.out.println(a-b);
         }
-        if(c=='*'){
+        else if(c=='*'){
             System.out.println(a*b);
         }
-        if(c=='/'){
+        else if(c=='/'){
             System.out.println(a/b);
         }
         else{
