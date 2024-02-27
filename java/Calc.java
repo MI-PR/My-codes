@@ -4,25 +4,13 @@ class Calc {
 
     public static void main (String st[]){
         float a,b;
+        float r = 0;
         char c;
-        //String d;
-        
-        Scanner sc = new Scanner (System.in);
 
-        // boolean Continue{
-        //     System.out.println("Continue ? yes/no");
-        //     d = sc.nextLine();
-        //     if(d.equalsIgnoreCase("yes")) return true;
-        //     else
-        //     return false;
-        // };
+        Scanner sc = new Scanner (System.in); 
         
-        
-        
-        boolean x = true;
-        
-        while(x == true){
-            System.out.println("Enter a binary equation of basic operations (1 e 1 for exit)");
+        do{
+            System.out.println("Enter a binary equation of basic operations (+, - , * /): ");
             
             a = sc.nextFloat();
             c = sc.next().charAt(0);
@@ -31,42 +19,24 @@ class Calc {
             
 
             switch(c){
-                case '+':System.out.println((a+b));
-                        // x = Continue();
-                    break;
-                case '-':System.out.println((a-b));
-                        // x = Continue();
-                    break;
-                case '*':System.out.println((a*b));
-                        // x = Continue();
-                    break;
+                case '+':r = a + b;
+                        break;
+                case '-':r = a - b;
+                        break;
+                case '*':r = a * b;
+                        break;
                 case '/':if(b != 0)
-                          System.out.println(a/b);
+                          r = a / b;
                         else
                           System.out.println("Error! Division by zero is not allowed.");
-                          break;
-                
-                case 'e' : x = false;break;
+                        break;
                 default:System.out.println("Invalid operator!");
             }
-        }
+            System.out.println(a + " " + c + " " + b + " = " + r);
+            System.out.println("Do you want to do another calculation ? (y/n)");
 
+        }while(sc.next().equalsIgnoreCase("y"));
         
-        // if(c=='+'){
-            // System.out.println(a+b);
-            // }
-            // else if(c=='-'){
-                //     System.out.println(a-b);
-                // }
-                // else if(c=='*'){
-                    //     System.out.println(a*b);
-                    // }
-                    // else if(c=='/'){
-                        //     System.out.println(a/b);
-                        // }
-                        // else{
-                            //     System.out.println("Invalid");
-                            //}
-                            sc.close();
+        sc.close();
     }
 }
