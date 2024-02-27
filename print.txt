@@ -1,0 +1,269 @@
+
+
+import java.io.*;
+import java.util.Scanner;
+
+class Calc {
+
+    public static void main (String st[]){
+        float a,b;
+        float r = 0;
+        char c;
+
+        Scanner sc = new Scanner (System.in); 
+        
+        do{
+            System.out.println("Enter a binary equation of basic operations (+, - , * /): ");
+            
+            a = sc.nextFloat();
+            c = sc.next().charAt(0);
+            b = sc.nextFloat();
+
+            
+
+            switch(c){
+                case '+':r = a + b;
+                        break;
+                case '-':r = a - b;
+                        break;
+                case '*':r = a * b;
+                        break;
+                case '/':if(b != 0)
+                          r = a / b;
+                        else
+                          System.out.println("Error! Division by zero is not allowed.");
+                        break;
+                default:System.out.println("Invalid operator!");
+            }
+            System.out.println(a + " " + c + " " + b + " = " + r);
+            System.out.println("Do you want to do another calculation ? (y/n)");
+
+        }while(sc.next().equalsIgnoreCase("y"));
+    }
+}
+
+Enter a binary equation of basic operations (+, - , * /): 
+5 + 7
+5.0 + 7.0 = 12.0
+Do you want to do another calculation ? (y/n)
+y
+Enter a binary equation of basic operations (+, - , * /): 
+5 * 8
+5.0 * 8.0 = 40.0
+Do you want to do another calculation ? (y/n)
+Y
+Enter a binary equation of basic operations (+, - , * /): 
+10 / 5
+10.0 / 5.0 = 2.0
+Do you want to do another calculation ? (y/n)
+n
+
+//////////////////////////////////////////////////////////
+
+import java.io.*;
+import java.util.Scanner;
+
+class Sum {
+    public static void main(String[] args) {
+        System.out.println("Enter two  numbers:");
+
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        
+        int c = a + b;
+
+        System.out.println("The sum of " + a + " and " + b + " is : " + c);
+    }
+}
+
+Enter two  numbers:
+5 7
+The sum of 5 and 7 is : 12
+
+Enter two  numbers:
+2 9
+The sum of 2 and 9 is : 11
+
+//////////////////////////////////////////////////
+
+import java.io.*;
+import java.util.Scanner;
+
+class Pal {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in) ; 
+        System.out.println("Enter a string : ");
+
+        String str = sc.nextLine() ;  
+        
+        int n = str.length();  
+        boolean x = true ;  
+        for (int i=0;i<n/2;i++) {        
+            if (str.charAt(i) != str.charAt(n-i-1)) {        
+                x = false ;          
+                break ;            
+            }        
+        }          
+        if (x == true)     
+            System.out.println("The given string is a palindrome");        
+        else                                    
+            System.out.println("The given string is not a palindrome");
+    }
+    
+}
+
+Enter a string : 
+hello
+The given string is not a palindrome
+
+Enter a string : 
+maam
+The given string is a palindrome
+
+///////////////////////////////////////////////////////
+
+import java.io.*;
+import java.util.Scanner;
+
+class Palnum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter a number: ");
+
+        int n = sc.nextInt();
+
+        int t = n;
+
+        int a = 0; 
+
+        do{
+            a = a *  10 + t % 10;
+            t /= 10;
+        }while(t != 0);
+
+        if (a == n) {
+            System.out.println("The number is a  palindrome.");
+        } else {
+            System.out.println("The number is not a palindrome.");
+        }
+    }
+}
+
+Enter a number: 
+10
+The number is not a palindrome.
+
+Enter a number: 
+1001
+The number is a  palindrome.
+
+/////////////////////////////////////////////////
+
+import java.io.*;
+import java.util.Scanner;
+
+class Matrixmult {
+    public static void main(String[] args) {
+        System.out.println("Enter the number of rows and columns in first matrix:");
+
+        Scanner sc  = new Scanner(System.in);
+        int r1 = sc.nextInt();
+        int c1 = sc.nextInt();
+
+        int m1[][] = new int [r1][c1];
+        System.out.println("Enter elements of first matrix:");
+
+        int i,j;
+
+        for(i=0;i<r1;i++){
+            for(j=0;j<c1;j++){
+                m1[i][j] = sc.nextInt();
+            }
+        }
+
+        for(i=0;i<r1;i++) {
+            for(j=0;j<c1;j++){
+                System.out.print(m1[i][j]+"\t");
+            }
+            System.out.println( "\n" );
+        }
+
+        int r2,c2;
+        do{
+            System.out.println("Enter the number of rows and columns in second matrix : ");
+            
+            r2 = sc.nextInt();
+            c2 = sc.nextInt();
+
+            if(c1 != r2)
+            System.out.println("Enter the row with same column value in matrix 1");
+
+        }while(c1 != r2);
+
+        int m2[][] = new int [r2][c2];
+        System.out.println("Enter elements of second matrix:");
+
+        for(i = 0;i < r2;i++)
+        {
+            for(j = 0; j < c2; j++)
+            {
+                m2[i][j] = sc.nextInt();
+            }
+        }
+
+        for(i=0;i<r2;i++) {
+            for(j=0;j<c2;j++){
+                System.out.print(m2[i][j]+"\t");
+            }
+            System.out.println( "\n" );
+        }
+
+        System.out.println("Matrix product is ");
+
+        int c[][] = new int[r1][c2];
+
+        for(i=0;i<r1;i++){
+            for(j=0;j<c2;j++){
+                for(int k = 0;k<r2;k++){
+                    c[i][j] += m1[i][k]*m2[k][j];
+                }
+            }
+        }
+
+        for(i=0; i<r1; i++) {
+            for(j=0; j<c2 ;j++){
+                System.out.print(c[i][j]+"\t");
+            }
+            System.out.println("\n");
+         }
+    }
+}
+
+
+Enter the number of rows and columns in first matrix:
+2 3
+Enter elements of first matrix:
+1 2 3 4 5 6
+1       2       3
+
+4       5       6
+
+Enter the number of rows and columns in second matrix : 
+3 2
+Enter elements of second matrix:
+1 2 3 4 5 6
+1       2
+
+3       4
+
+5       6
+
+Matrix product is 
+22      28
+
+49      64
+
+////////////////////////////////////////////
