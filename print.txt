@@ -121,7 +121,7 @@ The given string is not a palindrome
 Enter a string : 
 maam
 The given string is a palindrome
-
+    
 ///////////////////////////////////////////////////////
 
 import java.io.*;
