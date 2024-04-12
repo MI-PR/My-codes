@@ -76,37 +76,47 @@ public class Main {
         LinkedList list = new LinkedList();
 
         while (true) {
-            System.out.println("Menu:");
-            System.out.println("1. Insert node in nth position");
-            System.out.println("2. Delete the first node");
-            System.out.println("3. Replace the value of nth node with given value");
-            System.out.println("4. Display the list");
-            System.out.println("5. Exit");
+            System.out.println("Menu:\n" +
+                    "1. Create linked list by inserting values\n" +
+                    "2. Insert node in nth position\n" +
+                    "3. Delete the first node\n" +
+                    "4. Replace the value of nth node with given value\n" +
+                    "5. Display the list\n" +
+                    "6. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
+                    System.out.print("Enter the number of values to insert: ");
+                    int count = scanner.nextInt();
+                    for (int i = 0; i < count; i++) {
+                        System.out.print("Enter value " + (i + 1) + ": ");
+                        int value = scanner.nextInt();
+                        list.insertNode(value, i + 1);
+                    }
+                    break;
+                case 2:
                     System.out.print("Enter the value to insert: ");
                     int value = scanner.nextInt();
                     System.out.print("Enter the position: ");
                     int position = scanner.nextInt();
                     list.insertNode(value, position);
                     break;
-                case 2:
+                case 3:
                     list.deleteFirstNode();
                     break;
-                case 3:
+                case 4:
                     System.out.print("Enter the position of the node: ");
                     int pos = scanner.nextInt();
                     System.out.print("Enter the new value: ");
                     int newValue = scanner.nextInt();
                     list.replaceNthNodeValue(pos, newValue);
                     break;
-                case 4:
+                case 5:
                     list.displayList();
                     break;
-                case 5:
+                case 6:
                     System.out.println("Exiting...");
                     System.exit(0);
                     break;
